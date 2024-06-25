@@ -60,7 +60,7 @@ variable "asg_size" {
 }
 
 variable "key_name" {
-  default = "mw-us-west-2-kp"
+  default = "mw-us-west-2-keypair"
 }
 
 variable "cluster_endpoint_public_access" {

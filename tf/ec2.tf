@@ -20,8 +20,6 @@ module "jenkins-0" {
 ## Add ssh key
 cat << EOSSH > /tmp/privatekey
 REPLACEME
------END RSA PRIVATE KEY-----
-
 EOSSH
 
 ## Add docker-ce and  jenkins apt sources
@@ -78,7 +76,7 @@ credentials:
           - string:
               id: "my-aws-credentials"
               scope: GLOBAL
-              secret: "REPLACEME:REPALCEME"
+              secret: "REPLACEME:REPLACEME"
 
           - basicSSHUserPrivateKey:
               scope: GLOBAL

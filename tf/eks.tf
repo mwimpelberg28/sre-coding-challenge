@@ -15,6 +15,7 @@ module "eks" {
       most_recent = true
     }
   }
+  enable_cluster_creator_admin_permissions = true
 
 
   vpc_id                   = module.vpc.vpc_id
