@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+ name: nlbcontroller
+   annotations:
+     kubernetes.io/ingress.class: nlb
+     alb.ingress.kubernetes.io/group.name: tg
+     alb.ingress.kubernetes.io/target-type: instance
+     alb.ingress.kubernetes.io/scheme: internet-facing
+spec:
+ rules:
+   - host: tg
+     http:
+       paths:
+         - path: /*
+           pathType: Prefix
+           backend:
+             service:
+               name: tg-service
+               port:
+                 number: 5000

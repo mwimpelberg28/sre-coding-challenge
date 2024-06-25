@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingres.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  name: test-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: testsvc
+            port:
+              number: 5000
+        path: /test(/|$)(.*)
+        pathType: ImplementationSpecific
